@@ -1,0 +1,76 @@
+<div class="container">
+    SIGN UP!!!<br><br>
+
+    <form name='regForm' novalidate>
+
+        <input type="text" name="firstname" placeholder="First name"
+        ng-model="signUpCtrl.user.firstname"
+        required
+        minlength="1"
+        ng-maxlength="14">
+    
+        <span
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            First name must be at least 1 characters long
+        </span>
+        <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            First name must not be longer than 14 characters
+        </span>
+        <br>
+
+        <input type="text" name="lastname" placeholder="Last name"
+        ng-model="signUpCtrl.user.lastname"
+        required
+        minlength="1"
+        ng-maxlength="14">
+    
+        <span
+            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+            Last name must be at least 1 characters long
+        </span>
+        <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+            Last name must not be longer than 14 characters
+        </span>
+        <br>
+
+
+        <input type="email" name="email" placeholder="Email"
+        ng-model="signUpCtrl.user.email"
+        required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+        ng-model="signUpCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+        <input type="text" name="favoritedish" placeholder="Favorite Dish"
+        ng-model="signUpCtrl.user.favoritedish"
+        required
+        minlength="2"
+        ng-maxlength="2">
+    
+        <span
+            ng-if="(regForm.favoritedish.$error.minlength || regForm.favoritedish.$error.required) && regForm.favoritedish.$touched">
+            Favorite Dish Code must be 2 characters long
+        </span>
+        <span ng-if="regForm.favoritedish.$error.maxlength && regForm.favoritedish.$touched">
+            Favorite Dish Code must be 2 characters long
+        </span>
+        <br><br>
+
+        <button
+        ng-disabled="regForm.$invalid"
+        ng-click="signUpCtrl.submit()">Submit</button>
+
+    </form>
+<br>
+    {{signUpCtrl.message}}
+
+</div>

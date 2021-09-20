@@ -1,0 +1,21 @@
+<div class="container">
+
+    MY INFO!!!<br><br>
+
+    <div ng-if="myInfoCtrl.user === undefined">
+        <a ui-sref="public.sign-up"><b>Please sign up first!!</b></a>
+    </div>
+
+    <div ng-if="myInfoCtrl.user != undefined">
+        <b>First Name:</b> {{myInfoCtrl.user.firstname}}<br>
+        <b> Name:</b> {{myInfoCtrl.user.lastname}}<br>
+        <b>Email:</b> {{myInfoCtrl.user.email}}<br>
+        <b>Phone:</b> {{myInfoCtrl.user.phone}}<br>
+        <b>Favorite Dish:</b> <br>
+        {{myInfoCtrl.user.favoritedishDetails.name}}<br>
+        {{myInfoCtrl.user.favoritedishDetails.description}}<br>
+        <img ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.user.favoritedishDetails.short_name}}.jpg" >
+
+    </div>
+
+</div>
